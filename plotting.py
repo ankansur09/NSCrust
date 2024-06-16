@@ -67,9 +67,6 @@ for i in range(1000):
     
 def load_files():
     for t in range(startnt,endnt):
-    #for t in range(len(folder_numbers)):
-        #a[t] = np.loadtxt(input_folder+'A_%d.txt'%(folder_numbers[t]))
-        #print t*stept
         a[t] = np.loadtxt(input_folder+'A_%d.txt'%(t*stept+stept))
         b[t] = np.loadtxt(input_folder+'B_%d.txt'%(t*stept+stept))
         #a[t] = np.fromfile(input_folder+'A_%d.bin'%(t*10),'u1')
@@ -154,11 +151,6 @@ def fieldlines(r, theta, B_r, B_th, t, magB, timenow):
     cbar.ax.tick_params(labelsize=15) 
     ax.set_xlim(0,1)
     ax.set_ylim(-1,1)
-    #loc_arr_x = np.array([0.0,0.2,0.4,rmin,1.0])
-    #loc_arr_y = np.array([-1.0,-rmin,-0.4,-0.2,0.0,0.2,0.4,rmin,1.0])
-    #plt.xticks(loc_arr_x,[0.0,0.2,0.4,0.9,1.0],size=20)
-    #plt.yticks(loc_arr_y,[-1.0,-0.9,-0.4,-0.2,0.0,0.2,0.4,0.9,1.0],size=20)
-    #print timenow*13.0
     ax.set_title(r'$t$ ='+ str(np.round((timenow*13000.0),3)) +' Thyr',size=25)
     #ax.set_title(r't = %d'%(t),size=25)
     plt.savefig(out_folder+'fig%d.png'%t, bbox_inches='tight')
@@ -264,7 +256,6 @@ def fieldlines2(A,B):
     plt.close(f)
     #plt.show()
 
-#def analytical(rad,th,A_rth,B_rth,r_id,th_id):
 def analytical(rad,th,A_rth, B_rth, r_id,th_id):
     '''
     if case==1:
@@ -513,11 +504,7 @@ th_id = 10
 A_rth, B_rth = store_alpha_beta(r_id, th_id)
 #A_rth = store_alpha_beta(r_id, th_id)
 analytical(radii[r_id],thetas[th_id], A_rth, B_rth, r_id, th_id)
-#analytical(radii[r_id],thetas[th_id], A_rth, B_rth, r_id, th_id)
-#for t in range(5):
- #   A = alpha[t]
- #   B = beta[t]
-    #fieldlines2(A,B)
+
     
 
 
